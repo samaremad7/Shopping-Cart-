@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
+        * {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+            border: none;
+            text-transform: capitalize;
+            transition: all .2s linear;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 25px;
+            min-height: 100vh;
+            background: linear-gradient(#b8b8b8, #fffefe, #fffefe, #eceaea);
+        }
+
+        .container form {
+            background-color: rgba(0, 0, 0, 0.4);
+            padding: 20px;
+            width: 700px;
+
+            box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+        }
+
+        .container form .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .container form .row .col {
+            flex: 1 1 250px;
+        }
+
+        .container form .row .col .title {
+            font-size: 20px;
+            color: #333;
+            padding-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .container form .row .col .inputBox {
+            margin: 15px 0;
+        }
+
+        .container form .row .col .inputBox span {
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .container form .row .col .inputBox input {
+            width: 100%;
+            border: 1px solid #ccc;
+            padding: 10px 15px;
+            font-size: 15px;
+            text-transform: none;
+        }
+
+        .container form .row .col .inputBox input:focus {
+            border: 1px solid #000;
+        }
+
+        .container form .row .col .flex {
+            display: flex;
+            width: 100%;
+        }
+
+        .container form .row .col .flex .inputBox {
+            margin-top: 5px;
+        }
+
+        .container form .row .col .flex .inputBox #tot {
+            width: 40%;
+        }
+
+        .container form .row .col .flex .inputBox .total-payment span {
+            margin-top: 7px;
+        }
+
+        .container form .row .col .inputBox img {
+            height: 34px;
+            margin-top: 5px;
+            filter: drop-shadow(0 0 1px #000);
+        }
+
+        .container form .submit-btn {
+            width: 100%;
+            padding: 12px;
+            font-size: 17px;
+            background: #1cc581;
+            color: #fff;
+            margin-top: 5px;
+            cursor: pointer;
+        }
+
+        .container form .submit-btn:hover {
+            background: #26a95c;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form action="">
+            <div class="row">
+                <div class="col">
+                    <h3 class="title">billing address</h3>
+                    <div class="inputBox">
+                        <span>full name :</span>
+                        <input type="text" placeholder="please enter your name">
+                    </div>
+                    <div class="inputBox">
+                        <span>email :</span>
+                        <input type="email" placeholder="example@example.com">
+                    </div>
+                    <div class="inputBox">
+                        <span>address :</span>
+                        <input type="text" placeholder="city - street ">
+                    </div>
+                    <div class="inputBox">
+                        <span>city :</span>
+                        <input type="text" placeholder="egypt">
+                    </div>
+                    <div class="flex">
+                        <div class="inputBox" style="padding-right:40px;">
+                            <div class="total-payment">
+                                Total Payment: <span style="border:1px solid rgb(116, 112, 112); padding: 12px;"
+                                    id="paymentTotal">0</span>
+                            </div>
+                        </div>
+                        <div class="inputBox" style="padding-right: 80px;">
+                            <span>Payment:</span>
+                            <select style="border:1px solid rgb(116, 112, 112); padding: 12px;" name="payMethod" id="">
+                                <option value="Cash">Cash</option>
+                                <option value="Visa">Visa</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <h3 class="title">payment</h3>
+                    <div class="inputBox">
+                        <span>cards accepted :</span>
+                        <img src="imgs/card_img.png" alt="">
+                    </div>
+                    <div class="inputBox">
+                        <span>name on card :</span>
+                        <input type="text" placeholder="your name">
+                    </div>
+                    <div class="inputBox">
+                        <span>credit card number :</span>
+                        <input type="number" placeholder="1111-2222-3333-4444">
+                    </div>
+                    <div class="inputBox">
+                        <span>exp month :</span>
+                        <input type="text" placeholder="january">
+                    </div>
+                    <div class="flex">
+                        <div class="inputBox">
+                            <span>exp year :</span>
+                            <input type="number" placeholder="2025">
+                        </div>
+                        <div class="inputBox">
+                            <span>CVV :</span>
+                            <input type="text" placeholder="1234">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input type="submit" value="proceed to checkout" class="submit-btn">
+        </form>
+    </div>
+   
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+    let totalPayment = localStorage.getItem("totalPayment");
+    let paymentTotalElement = document.getElementById("paymentTotal");
+    paymentTotalElement.textContent = totalPayment ? `$${totalPayment}` : "$0.00"; // عرض القيمة
+});
+    </script>
+
+    <script src="node_modules/swiper/swiper-bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="node_modules/swiper/swiper.min.js"></script>
+    <script src="js/popper.min.js"></script>
+</body>
+
+</html>

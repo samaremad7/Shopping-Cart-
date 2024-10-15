@@ -1,0 +1,101 @@
+body {
+    background-color: #f8f9fa;
+}
+/*############################################################*/
+.login {
+    background-image: url(imgs/backk.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 680px;
+    display: flex; 
+    justify-content: center;
+    align-items: center;  
+}
+.login h1{
+    text-align: center;
+}
+.login-form {
+    background-color: rgba(0, 0, 0, 0.3); 
+    padding: 70px ; 
+    border: 2px solid #57595c; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(94, 91, 91, 0.5); 
+    width: 600px; 
+ margin-left: 250px;
+}
+.login-form label {
+    font-weight: bold; 
+}
+@media (max-width: 988px) {
+    .login-form {
+        margin-left:40px ;
+    }
+}
+@media (max-width: 788px) {
+    .login-form {
+        margin-left:-10px ;
+    }
+}
+@media (max-width: 688px) {
+    .login-form {
+        width: 470px; 
+        margin-left:15px ;
+    }
+}
+@media (max-width: 580px) {
+    .login-form {
+        width: 400px;
+        margin-left: 15px; 
+    }
+}
+@media (max-width: 460px) {
+    .login-form {
+        width: 300px;
+        margin-left: 15px; 
+    }
+}
+/*##################################################################################*/
+.Shopping{
+    background-image: url(imgs/backkk.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.Shopping h1 {
+    text-align: center;
+    color: #f8f9fa;
+    font-weight: bolder;
+    margin-bottom: 40px;
+}
+.card {
+    transition: transform 0.2s;
+    width: 80%;
+    height: fit-content;
+}
+.card img{
+    height: 200px;
+    width: 279px;
+}
+.card:hover {
+    transform: scale(1.05);
+}
+.Shopping a{
+   margin-bottom: 40px;
+}
+/*###########################################################*/
+.cart-container {
+    background-color: rgba(255, 255, 255, 0.8); /* خلفية بيضاء شفافة */
+    padding: 30px; /* إضافة مساحة داخلية */
+    border-radius: 10px; /* زوايا دائرية */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* ظل */
+    max-width: 600px; /* عرض أقصى */
+    margin: auto; /* توسيط العنصر */
+}
+
+.button-group {
+    display: flex; /* استخدام flexbox لتوزيع الأزرار */
+    flex-direction: column; /* ترتيب الأزرار عموديًا */
+    gap: 10px; /* إضافة مسافة بين الأزرار */
+    margin-top: 20px; /* إضافة مساحة أعلى الأزرار */
+}

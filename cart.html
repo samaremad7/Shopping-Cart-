@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body> 
+    <div class="container mt-5">
+        <button class="btn btn-danger" onclick="logout()">Logout</button>
+    </div>
+    <div class="container mt-4">
+        <div class="cart-container">
+            <h1>Your Shopping Cart</h1>
+            <div class="row" id="cart-items"></div>
+            <h3 id="total-price">Total: $0.00</h3>
+            <div class="button-group">
+                <button class="btn btn-danger" onclick="clearCart()">Clear Cart</button>
+                <a href="payment.html" class="btn btn-success">Pay Now</a> 
+                <a href="index.html" class="btn btn-primary mt-2">Continue Shopping</a>
+            </div>
+        </div>
+    </div>
+  
+   <script>
+    const payNowButton = document.querySelector('.btn-success');
+    payNowButton.addEventListener('click', () => {
+        let totalPaymentElement = document.getElementById("total-price");
+        let totalPayment = totalPaymentElement.textContent.replace('Total: $', '');
+        localStorage.setItem("totalPayment", totalPayment);
+    });
+</script>
+    <script src="main.js"></script>
+</body>
+</html>
